@@ -17,6 +17,9 @@ go的http请求库参数特别多，有一些默认参数甚至会让你踩坑�
 >client4
 >>局部变量，设置SetDeadline。每个请求一个句柄，句柄会正常关闭。不会有问题
 
+>client5
+>>局部变量，关闭keepalive功能，请求的句柄使用完马上被销毁。观察返回值每次请求的端口都不同，说明都是重新TCP握手的
+
 # 汇总
 
 1. 测试中只要ts.IdleConnTimeout或设置conn.SetDeadline()都可以起到效果, 至于区别可看最下面的参考链接。

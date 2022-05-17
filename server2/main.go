@@ -6,7 +6,7 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("server2"))
+	w.Write([]byte("server2: " + r.RemoteAddr))
 }
 func main() {
 	http.HandleFunc("/", Index)
