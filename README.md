@@ -29,9 +29,9 @@ go的http请求库参数特别多，有一些默认参数甚至会让你踩坑�
 
 1. 测试中只要ts.IdleConnTimeout或设置conn.SetDeadline()都可以起到效果, 但IdleConnTimeout更优
 2. 根据client-timeout.png中所示，最好要设置3个超时时间（Dialer.Timeout,Client.Timeout,IdleConnTimeout)
-3. 根据文中说明MaxIdleConnsPerHost默认值只有2有时也是不够的，可以设置为1024
-4. 可以通过DisableKeepAlives:true关闭长连接
-5. 为了更好的复用句柄，同一业务可以使用同一个client, 不同业务要分开
+3. 根据参考的博文中说明MaxIdleConnsPerHost默认值只有2有时也是不够的，可以设置为1024
+4. 有需要时，可以通过DisableKeepAlives:true关闭长连接
+5. 即使不同域名也可以使用同一个client变量。当不同业务需要的Transport可能会不同时client变量要分开。
 
 # 参考
 * https://blog.csdn.net/bigwhite20xx/article/details/112386441
